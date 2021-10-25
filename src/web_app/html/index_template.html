@@ -121,12 +121,22 @@
     <a href="//github.com/webrtc/apprtc">Code repo</a>
   </div>
 
+  <script src="https://css4.yonsei.ac.kr:7777/socket.io/socket.io.js"></script>
   <script src="/js/adapter.js"></script>
   <script src="/js/util.js"></script>
   <script src="/js/sdputils.js"></script>
   <script src="/js/analytics.js"></script>
   <script src="/js/appcontroller.js"></script>
+  
+  <script>
+    const socket = io.connect("https://css4.yonsei.ac.kr:7777", { transports: ['websocket'], 'force new connection': true });
+    
+    let localStream=null;
+    window.gateRoomNumber = '0';
+  </script>
+
   <script src="/js/call.js"></script>
+  <script src="/js/MultiStreamsMixer.js"></script>
   <script src="/js/constants.js"></script>
   <script src="/js/infobox.js"></script>
   {{ include_loopback_js }}
@@ -191,5 +201,6 @@
     ga('create', 'UA-48530561-2', 'auto');
     ga('send', 'pageview');
   </script>
+  <script src="/js/gate_origin.js"></script>
 </body>
 </html>
